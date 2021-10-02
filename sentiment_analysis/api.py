@@ -4,7 +4,7 @@ from fastapi import Depends, FastAPI
 from pydantic import BaseModel
 
 from transformers import pipeline, AutoModelForSequenceClassification, AutoTokenizer
-from models.get_sentiment_analysis_model import get_model, get_tokenizer
+from model import get_model, get_tokenizer
 
 
 app = FastAPI()
