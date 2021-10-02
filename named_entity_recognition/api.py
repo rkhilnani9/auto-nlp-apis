@@ -20,7 +20,7 @@ class NerResponse(BaseModel):
 
 
 @app.post("/named-entity-recognizer", response_model=NerResponse)
-def predict_sentiment(
+def predict_ner_tags(
     request: NerRequest,
     model: AutoModelForTokenClassification = Depends(get_model),
     tokenizer: AutoTokenizer = Depends(get_tokenizer),
