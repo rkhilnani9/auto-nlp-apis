@@ -25,10 +25,9 @@ def predict_sentiment(
     model: AutoModelForSequenceClassification = Depends(get_model),
     tokenizer: AutoTokenizer = Depends(get_tokenizer),
 ):
-    input_text = request.text
-
-    input_text = input_text.lower()
+    input_text = request.text.lower()
     input_text = re.sub(r"[^\w\s]", "", input_text)
+
     sentiment_classifier = pipeline(
         "sentiment-analysis", model=model, tokenizer=tokenizer
     )
