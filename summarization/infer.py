@@ -12,10 +12,7 @@ def infer(input_text):
 
     num_words = len(input_text.split())
 
-    min_summary_length = int(num_words//10)
-    max_summary_length = int(num_words//2)
+    min_summary_length = int(num_words/10)
+    max_summary_length = int(num_words/2)
 
-    print(min_summary_length)
-    print(max_summary_length)
-
-    return summarization_pipeline(input_text, max_length=60, min_length=10)
+    return summarization_pipeline(input_text, max_length=max_summary_length, min_length=min_summary_length)
