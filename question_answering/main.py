@@ -7,9 +7,9 @@ router = APIRouter()
 
 class QARequest(BaseModel):
     text: str
-    question: str
+    context: str
 
 
 @router.post("/validate/")
 def answer_question(request: QARequest):
-    return infer(request.question, request.text)
+    return infer(request.text, request.context)
