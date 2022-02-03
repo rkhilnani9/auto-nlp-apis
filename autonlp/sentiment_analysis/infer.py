@@ -1,6 +1,6 @@
 import re
 from transformers import pipeline
-from sentiment_analysis.model import get_model, get_tokenizer
+from autonlp.sentiment_analysis import get_model, get_tokenizer
 
 model = get_model()
 tokenizer = get_tokenizer()

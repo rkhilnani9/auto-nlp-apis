@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from named_entity_recognition.infer import infer
+from autonlp.named_entity_recognition.infer import infer
 
 router = APIRouter()
 

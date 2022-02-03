@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from question_answering.infer import infer
+from autonlp.question_answering.infer import infer
 
 router = APIRouter()
 

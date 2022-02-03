@@ -1,15 +1,14 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from fill_mask.infer import infer
-
+from autonlp.summarization.infer import infer
 
 router = APIRouter()
 
 
-class FillMaskRequest(BaseModel):
+class SummarizationRequest(BaseModel):
     text: str
 
 
 @router.post("/validate/")
-async def fill_mask(request: FillMaskRequest):
+async def validate(request: SummarizationRequest):
     return infer(request.text)

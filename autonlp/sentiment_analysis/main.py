@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from sentiment_analysis.infer import infer
+from autonlp.sentiment_analysis import infer
 
 router = APIRouter()
 

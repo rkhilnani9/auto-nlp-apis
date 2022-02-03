@@ -1,5 +1,5 @@
 from transformers import pipeline
-from fill_mask.model import get_model, get_tokenizer
+from autonlp.fill_mask import get_model, get_tokenizer
 
 model = get_model()
 tokenizer = get_tokenizer()

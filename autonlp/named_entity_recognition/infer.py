@@ -1,5 +1,5 @@
 from transformers import pipeline
-from named_entity_recognition.model import get_model, get_tokenizer
+from autonlp.named_entity_recognition.model import get_model, get_tokenizer
 
 model = get_model()
 tokenizer = get_tokenizer()
