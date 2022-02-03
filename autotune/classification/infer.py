@@ -30,6 +30,6 @@ def infer(dataframe):
 
     predicted_labels = np.argmax(pred_probs, axis=1)
 
-    return list(predicted_labels)
+    return {"predictions" : list(predicted_labels)}
 
 

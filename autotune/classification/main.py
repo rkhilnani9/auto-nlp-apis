@@ -1,4 +1,5 @@
 from fastapi import APIRouter, File, UploadFile
+from fastapi.responses import JSONResponse
 
 router = APIRouter()
 
@@ -13,4 +14,4 @@ async def train(dataframe: UploadFile = File(...)):
 @router.post('/predict/')
 async def predict(dataframe: UploadFile = File(...)):
     from classification.infer import infer
-    return infer(dataframe)
+    return JSONResponse(infer(dataframe))

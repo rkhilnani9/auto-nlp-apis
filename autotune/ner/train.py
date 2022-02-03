@@ -35,12 +35,12 @@ def train_model(data):
     data_collator = DataCollatorForTokenClassification(tokenizer)
 
     args = TrainingArguments(
-        output_dir = config.MODEL_SAVE_PATH,
+        output_dir=config.NER_MODEL_SAVE_PATH,
         evaluation_strategy="epoch",
-        learning_rate=1e-4,
+        learning_rate=config.LEARNING_RATE,
         per_device_train_batch_size=config.BATCH_SIZE,
         per_device_eval_batch_size=config.BATCH_SIZE,
-        num_train_epochs=3,
+        num_train_epochs=config.NUM_EPOCHS,
         weight_decay=1e-5,
     )
 
@@ -55,6 +55,6 @@ def train_model(data):
 
     trainer.train()
 
-    trainer.save_model(config.MODEL_SAVE_PATH)
+    trainer.save_model(config.NER_MODEL_SAVE_PATH)
 
     return

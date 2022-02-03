@@ -46,7 +46,7 @@ def train_model(dataframe):
 
     # Train the model
     training_args = TrainingArguments(
-        output_dir=config.CHECKPOINT_PROGRESS_DIRECTORY,  # output directory
+        output_dir=config.CLS_MODEL_SAVE_PATH,  # output directory
         num_train_epochs=config.NUM_EPOCHS,
         evaluation_strategy="epoch",  # total number of training epochs
     )
