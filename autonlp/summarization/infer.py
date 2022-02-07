@@ -1,5 +1,5 @@
 from transformers import pipeline
-from autonlp.summarization import get_model, get_tokenizer
+from autonlp.summarization.model import get_model, get_tokenizer
 
 model = get_model()
 tokenizer = get_tokenizer()

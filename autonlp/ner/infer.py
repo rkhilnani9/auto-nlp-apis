@@ -1,14 +1,16 @@
 from transformers import pipeline
-from autonlp.fill_mask.model import get_model, get_tokenizer
+from autonlp.ner.model import get_model, get_tokenizer
 
 model = get_model()
 tokenizer = get_tokenizer()
 
 
 def infer(input_text):
-    fill_mask_pipeline = pipeline("fill-mask", model=model, tokenizer=tokenizer)
+    named_entity_recognizer = pipeline(
+        "ner", model=model, tokenizer=tokenizer, grouped_entities=True
+    )
 
-    result = fill_mask_pipeline(input_text)
+    result = named_entity_recognizer(input_text.lower())
 
     # FastAPI cannot json encode numpy.float32
     for entity_dict in result:
