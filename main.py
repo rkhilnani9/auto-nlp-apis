@@ -8,6 +8,18 @@ from autonlp.question_answering.main import router as question_answering_router
 from autonlp.fill_mask.main import router as fill_mask_router
 from autonlp.summarization.main import router as summarization_router
 
+from autonlp.classification.infer import infer as classification_infer
+from autonlp.question_answering.infer import infer as question_answering_infer
+from autonlp.ner.infer import infer as ner_infer
+from autonlp.fill_mask.infer import infer as fill_mask_infer
+from autonlp.summarization.infer import infer as summarization_infer
+
+from autonlp.classification.train import train_model as train_classifier
+from autonlp.ner.train import train_model as train_ner_model
+
+from autonlp.classification.predict import predict as classification_predict
+from autonlp.ner.predict import predict as ner_predict
+
 ALLOWED_TASKS = [
     'classification',
     'named_entity_recognition',
@@ -39,33 +51,26 @@ cli = Typer()
 def validate(task=None, text=None, context=None):
     assert task in ALLOWED_TASKS, f'task should be one of {ALLOWED_TASKS}'
     if task == 'classification':
-        from autonlp.classification.infer import infer as classification_infer
         classification_infer(text)
 
     if task == 'named_entity_recognition':
-        from autonlp.ner.infer import infer as ner_infer
         ner_infer(text)
 
     if task == 'question_answering':
-        from autonlp.question_answering.infer import infer as question_answering_infer
         question_answering_infer(text, context)
 
     if task == "fill_mask":
-        from autonlp.fill_mask.infer import infer as fill_mask_infer
         fill_mask_infer(text)
 
     if task == "summarization":
-        from autonlp.summarization.infer import infer as summarization_infer
         summarization_infer(text)
 
 @cli.command()
 def train(task=None, dataframe=None):
     assert task in ALLOWED_TASKS, f'task should be one of {ALLOWED_TASKS}'
     if task == 'classification':
-        from autonlp.classification.train import train_model as train_classifier
         train_classifier(dataframe)
     elif task == 'named_entity_recognition':
-        from autonlp.ner.train import train_model as train_ner_model
         train_ner_model(dataframe)
 
 
@@ -74,10 +79,8 @@ def train(task=None, dataframe=None):
 def predict(task=None, dataframe=None):
     assert task in ALLOWED_TASKS, f'task should be one of {ALLOWED_TASKS}'
     if task == 'classification':
-        from autonlp.classification.predict import predict as classification_predict
         preds = classification_predict(dataframe)
     elif task == 'named_entity_recognition':
-        from autonlp.ner.predict import predict as ner_predict
         preds = ner_predict(dataframe)
 
 
