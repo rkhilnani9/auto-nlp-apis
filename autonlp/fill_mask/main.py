@@ -10,6 +10,6 @@ class FillMaskRequest(BaseModel):
     text: str
 
 
-@router.post("/validate/")
+@router.post("/infer/")
 async def fill_mask(request: FillMaskRequest):
     return infer(request.text)

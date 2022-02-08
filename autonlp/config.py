@@ -1,4 +1,4 @@
-DATA_ROOT = "/Users/rkhilnan/Desktop/auto-nlp-apis/autotune_examples/"
+DATA_ROOT = "/Users/rkhilnan/Desktop/auto-nlp-apis/autotune_models/"
 
 # Training params
 

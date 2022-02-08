@@ -13,7 +13,7 @@ class NerRequest(BaseModel):
     text: str
 
 
-@router.post('/validate/')
+@router.post('/infer/')
 def predict_ner_tags(request: NerRequest):
     return infer(request.text)
 

@@ -10,6 +10,6 @@ class QARequest(BaseModel):
     context: str
 
 
-@router.post("/validate/")
+@router.post("/infer/")
 def answer_question(request: QARequest):
     return infer(request.text, request.context)

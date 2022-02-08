@@ -13,7 +13,7 @@ class ClassificationRequest(BaseModel):
     text: str
 
 
-@router.post("/validate/")
+@router.post("/infer/")
 async def validate(request: ClassificationRequest):
     return infer(request.text)
 

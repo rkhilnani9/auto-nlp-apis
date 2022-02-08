@@ -48,7 +48,7 @@ cli = Typer()
 
 
 @cli.command()
-def validate(task=None, text=None, context=None):
+def infer(task=None, text=None, context=None):
     assert task in ALLOWED_TASKS, f'task should be one of {ALLOWED_TASKS}'
     if task == 'classification':
         classification_infer(text)
