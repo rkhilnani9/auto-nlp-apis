@@ -13,7 +13,7 @@ from autonlp import config
 
 
 def train_model(dataframe):
-    data = pd.read_csv(dataframe.file, index_col=0)
+    data = pd.read_csv(io.BytesIO(dataframe.file.read()), index_col=0)
     data.columns = ["text", "label"]
 
     x = data["text"].values
