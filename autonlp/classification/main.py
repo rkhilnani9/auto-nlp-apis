@@ -14,7 +14,7 @@ class ClassificationRequest(BaseModel):
 
 
 @router.post("/infer/")
-async def validate(request: ClassificationRequest):
+async def infer(request: ClassificationRequest):
     return infer(request.text)
 
 

@@ -14,7 +14,7 @@ class NerRequest(BaseModel):
 
 
 @router.post('/infer/')
-def predict_ner_tags(request: NerRequest):
+def infer(request: NerRequest):
     return infer(request.text)
 
 @router.post('/train/')
