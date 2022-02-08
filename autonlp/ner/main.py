@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 from autonlp.ner.infer import infer
 from autonlp.ner.train import train_model
-from autonlp.ner.predict import predict
+# from autonlp.ner.predict import predict
 
 
 router = APIRouter()
@@ -23,6 +23,6 @@ async def train(dataframe: UploadFile = File(...)):
     return {"Message": "Model training has started!"}
 
 
-@router.post('/predict/')
-async def predict(dataframe: UploadFile = File(...)):
-    return predict(dataframe)
+# @router.post('/predict/')
+# async def predict(dataframe: UploadFile = File(...)):
+#     return predict(dataframe)

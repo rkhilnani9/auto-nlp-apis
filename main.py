@@ -18,7 +18,7 @@ from autonlp.classification.train import train_model as train_classifier
 from autonlp.ner.train import train_model as train_ner_model
 
 from autonlp.classification.predict import predict as classification_predict
-from autonlp.ner.predict import predict as ner_predict
+# from autonlp.ner.predict import predict as ner_predict
 
 ALLOWED_TASKS = [
     'classification',
@@ -80,8 +80,8 @@ def predict(task=None, dataframe=None):
     assert task in ALLOWED_TASKS, f'task should be one of {ALLOWED_TASKS}'
     if task == 'classification':
         preds = classification_predict(dataframe)
-    elif task == 'named_entity_recognition':
-        preds = ner_predict(dataframe)
+    # elif task == 'named_entity_recognition':
+    #     preds = ner_predict(dataframe)
 
 
 if __name__ == '__main__':
