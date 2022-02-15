@@ -17,8 +17,6 @@ from autonlp.summarization.infer import infer as summarization_infer
 from autonlp.classification.train import train_model as train_classifier
 from autonlp.ner.train import train_model as train_ner_model
 
-from autonlp.classification.predict import predict as classification_predict
-# from autonlp.ner.predict import predict as ner_predict
 
 ALLOWED_TASKS = [
     'classification',
@@ -48,22 +46,22 @@ cli = Typer()
 
 
 @cli.command()
-def infer(task=None, text=None, context=None):
+def infer(task=None, text=None, context=None, pretrained=None):
     assert task in ALLOWED_TASKS, f'task should be one of {ALLOWED_TASKS}'
     if task == 'classification':
-        classification_infer(text)
+        classification_infer(text, pretrained)
 
     if task == 'named_entity_recognition':
-        ner_infer(text)
+        ner_infer(text, pretrained)
 
     if task == 'question_answering':
-        question_answering_infer(text, context)
+        question_answering_infer(text, context, pretrained)
 
     if task == "fill_mask":
-        fill_mask_infer(text)
+        fill_mask_infer(text, pretrained)
 
     if task == "summarization":
-        summarization_infer(text)
+        summarization_infer(text, pretrained)
 
 @cli.command()
 def train(task=None, dataframe=None):
@@ -73,15 +71,6 @@ def train(task=None, dataframe=None):
     elif task == 'named_entity_recognition':
         train_ner_model(dataframe)
 
-
-
-@cli.command()
-def predict(task=None, dataframe=None):
-    assert task in ALLOWED_TASKS, f'task should be one of {ALLOWED_TASKS}'
-    if task == 'classification':
-        preds = classification_predict(dataframe)
-    # elif task == 'named_entity_recognition':
-    #     preds = ner_predict(dataframe)
 
 
 if __name__ == '__main__':

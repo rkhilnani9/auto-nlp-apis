@@ -9,6 +9,6 @@ class SummarizationRequest(BaseModel):
     text: str
 
 
-@router.post("/infer/")
-async def infer(request: SummarizationRequest):
-    return infer(request.text)
+@router.post("/infer/{pretrained}")
+async def infer(request: SummarizationRequest, pretrained: str = "true"):
+    return infer(request.text, pretrained)

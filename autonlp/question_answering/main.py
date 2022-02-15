@@ -10,6 +10,7 @@ class QARequest(BaseModel):
     context: str
 
 
-@router.post("/infer/")
-def answer_question(request: QARequest):
-    return infer(request.text, request.context)
+@router.post("/infer/{pretrained}")
+async def infer(request: QARequest, pretrained: str = "true"):
+    return infer(request.text, pretrained)
+

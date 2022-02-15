@@ -5,7 +5,7 @@ model = get_model()
 tokenizer = get_tokenizer()
 
 
-def infer(input_text):
+def infer(input_text, pretrained):
     summarization_pipeline = pipeline(
         "summarization", model=model, tokenizer=tokenizer
     )

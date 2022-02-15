@@ -5,7 +5,7 @@ model = get_model()
 tokenizer = get_tokenizer()
 
 
-def infer(input_text):
+def infer(input_text, pretrained):
     fill_mask_pipeline = pipeline("fill-mask", model=model, tokenizer=tokenizer)
 
     result = fill_mask_pipeline(input_text)

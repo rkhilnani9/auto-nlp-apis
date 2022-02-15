@@ -5,7 +5,7 @@ model = get_model()
 tokenizer = get_tokenizer()
 
 
-def infer(question, context):
+def infer(question, context, pretrained):
     question_answering_pipeline = pipeline(
         "question-answering", model=model, tokenizer=tokenizer
     )
