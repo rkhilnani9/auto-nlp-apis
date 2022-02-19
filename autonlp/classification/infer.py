@@ -7,6 +7,8 @@ tokenizer = get_tokenizer()
 
 
 def infer(input_text, pretrained):
+    model = get_model()
+    tokenizer = get_tokenizer()
     input_text = re.sub(r"[^\w\s]", "", input_text).lower()
 
     if pretrained == "true":

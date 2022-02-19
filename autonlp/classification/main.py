@@ -13,11 +13,11 @@ class ClassificationRequest(BaseModel):
 
 
 @router.post("/infer/{pretrained}")
-async def infer(request: ClassificationRequest, pretrained: str = "true"):
+def validate(request: ClassificationRequest, pretrained: str = "true"):
     return infer(request.text, pretrained)
 
 
 @router.post('/train/')
-async def train(dataframe: UploadFile = File(...)):
+def train(dataframe: UploadFile = File(...)):
     train_model(dataframe)
     return {"Message": "Model training has started!"}

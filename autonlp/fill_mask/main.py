@@ -11,5 +11,5 @@ class FillMaskRequest(BaseModel):
 
 
 @router.post("/infer/{pretrained}")
-async def infer(request: FillMaskRequest, pretrained: str = "true"):
+async def validate(request: FillMaskRequest, pretrained: str = "true"):
     return infer(request.text, pretrained)

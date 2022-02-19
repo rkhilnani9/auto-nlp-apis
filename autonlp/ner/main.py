@@ -13,7 +13,7 @@ class NerRequest(BaseModel):
 
 
 @router.post("/infer/{pretrained}")
-async def infer(request: NerRequest, pretrained: str = "true"):
+async def validate(request: NerRequest, pretrained: str = "true"):
     return infer(request.text, pretrained)
 
 

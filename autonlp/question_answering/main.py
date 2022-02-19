@@ -11,6 +11,6 @@ class QARequest(BaseModel):
 
 
 @router.post("/infer/{pretrained}")
-async def infer(request: QARequest, pretrained: str = "true"):
-    return infer(request.text, pretrained)
+async def validate(request: QARequest, pretrained: str = "true"):
+    return infer(request.text, request.context, pretrained)
 

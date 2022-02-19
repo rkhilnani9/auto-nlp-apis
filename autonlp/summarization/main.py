@@ -10,5 +10,5 @@ class SummarizationRequest(BaseModel):
 
 
 @router.post("/infer/{pretrained}")
-async def infer(request: SummarizationRequest, pretrained: str = "true"):
+async def validate(request: SummarizationRequest, pretrained: str = "true"):
     return infer(request.text, pretrained)
