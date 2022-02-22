@@ -1,10 +1,10 @@
 import torch
 import numpy as np
-from autonlp import config
 
 from transformers import pipeline
 from transformers import AutoModelForTokenClassification, AutoTokenizer
 from autonlp.ner.model import get_model, get_tokenizer
+from autonlp import config
 
 model = get_model()
 tokenizer = get_tokenizer()
