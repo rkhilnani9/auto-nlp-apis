@@ -1,5 +1,6 @@
 import torch
 import numpy as np
+from autonlp import config
 
 from transformers import pipeline
 from transformers import AutoModelForTokenClassification, AutoTokenizer
