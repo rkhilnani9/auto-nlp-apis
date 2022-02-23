@@ -23,7 +23,7 @@ def infer(input_text, pretrained):
         )
         preds = sentiment_classifier(input_text)[0]
     else:
-        sentiment_classifier = AutoModelForSequenceClassification.from_pretrained(config.CLS_MODEL_SAVE_PATH + "checkpoint-500/")
+        sentiment_classifier = AutoModelForSequenceClassification.from_pretrained(config.CLS_MODEL_SAVE_PATH)
         tokenizer = AutoTokenizer.from_pretrained(config.PRETRAINED_MODEL)
         tokens = tokenizer(input_text, return_tensors="pt")
         logits = sentiment_classifier(**tokens)

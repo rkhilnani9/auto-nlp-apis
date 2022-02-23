@@ -25,7 +25,7 @@ def infer(input_text, pretrained):
 
     else:
         named_entity_recognizer = AutoModelForTokenClassification.from_pretrained(
-            config.NER_MODEL_SAVE_PATH + "checkpoint-500/")
+            config.NER_MODEL_SAVE_PATH)
         tokens = tokenizer(input_text)
 
         # Get predictions
